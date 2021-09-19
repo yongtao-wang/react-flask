@@ -19,3 +19,6 @@ class Project(Base):
     updated_on = Column(DateTime, default=dt.utcnow)
 
     created_by = Column(String(128), ForeignKey('user.id'), nullable=True)
+
+    def __repr__(self) -> str:
+        return f"Project {self.id}: {self.name}. Created on {self.created_on} by {self.created_by}"

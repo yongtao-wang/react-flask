@@ -19,3 +19,6 @@ class User(Base):
 
     updated = Column(DateTime, default=dt.utcnow)
     deleted = Column(Boolean, default=False)
+
+    def __repr__(self) -> str:
+        return f"User {self.name}, id: {self.id}, title: {self.title}, deleted: {self.deleted}"
