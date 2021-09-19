@@ -1,5 +1,6 @@
-Flask==1.1.2
+Flask==2.0.1
 Flask-Cors==3.0.10
-SQLAlchemy==1.4.12
-pytest==6.2.3
-marshmallow==3.11.1
+SQLAlchemy==1.4.23
+pytest==6.2.5
+click==8.0.1
+marshmallow==3.13.0
