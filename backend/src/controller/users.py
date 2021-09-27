@@ -35,7 +35,9 @@ def get_users():
     
     results = []
     for user in query.all():
-        results.append()
+        results.append(format_user(user))
+
+    return jsonify({"data": results})
 
 
 def format_user(user: User):
