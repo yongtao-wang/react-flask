@@ -1,5 +1,5 @@
-from app import db_engine
+from app import db
 
 
 def init():
-    db_engine.create_all()
+    db.create_all()
