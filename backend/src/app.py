@@ -39,7 +39,7 @@ def register_cli(app: Flask):
 def register_error_handler(app: Flask):
     @app.errorhandler(404)
     def page_not_found(e):
-        return jsonify({'data': None}, 404)
+        return jsonify({'data': "Page not found"}, 404)
 
     @app.errorhandler(401)
     def user_unauthorized(e):

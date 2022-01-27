@@ -3,7 +3,6 @@ import logging
 from flask import Blueprint, jsonify, request
 from sqlalchemy import or_
 
-from app import db
 from model.user import User
 
 users = Blueprint('users', __name__)
