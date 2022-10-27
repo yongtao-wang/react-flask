@@ -5,10 +5,10 @@ class BaseConfig():
     SECRET_KEY = ''
 
     """Database configurations"""
-    DB_NAME = ''
+    DB_NAME = 'major'
     DB_HOST = 'localhost'
     DB_USER = 'root'
-    DB_PASS = ''
+    DB_PASS = 'yael'
 
     @property
     def DATABASE_URI(self):
