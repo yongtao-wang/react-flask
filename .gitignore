@@ -1,4 +1,2 @@
-/venv/
 .vscode
 *.DS_Store
-*.pyc

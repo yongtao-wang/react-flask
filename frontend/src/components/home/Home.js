@@ -1,7 +1,9 @@
 const Intro = () => {
-    return (
-        <div className="intro">
-            
-        </div>
-    )
-}
+  return <div></div>;
+};
+
+const Home = () => {
+  return <div></div>;
+};
+
+export default Home;
