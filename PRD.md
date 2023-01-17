@@ -29,3 +29,39 @@ A website for travel blog + tour guide, displaying places of interest that I wan
 - [ ] Article edit
 - [ ] Article delete
 - [ ] Article visibility
+
+## System modules
+
+### Front-end
+#### Components
+- Home page
+  - Header
+  - Footer
+- Navigation bar
+  - Home
+  - Travel Guide
+  - About Me
+- Article page
+  - Article preview
+    - Article content
+  - Pagination
+  - Sidebar/Index
+- About me + Contact
+
+#### Utilities
+- API wrapper
+- Auth context
+- i18n
+- Tokens
+
+### Back-end
+- Python + Flaks + MySQL
+- APIs
+  - Public
+    - Single article GET
+    - Batch article GET
+    - Token refresh
+    - Login
+    - Logout
+  - Protected
+    - Single article POST + UPDATE + DELETE
