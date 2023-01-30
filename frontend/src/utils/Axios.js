@@ -1,5 +1,5 @@
-import axios from "axios"
-import URL from "./Configs"
+import axios from 'axios'
+import URL from './Configs'
 
 export default axios.create({
   baseURL: URL.baseUrl,
@@ -8,7 +8,7 @@ export default axios.create({
 export const axiosProtected = axios.create({
   baseURL: URL.baseUrl,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
     withCredentials: true,
   },
 })
