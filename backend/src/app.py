@@ -5,6 +5,7 @@ from flask_cors import CORS
 from sqlalchemy import create_engine
 
 from controller.users import users
+from controller.articles import articles
 import cfg
 
 
@@ -29,6 +30,7 @@ def create_app():
 def register_blueprints(app: Flask):
     """Register Flask blueprints"""
     app.register_blueprint(users)
+    app.register_blueprint(articles)
 
 
 def register_cli(app: Flask):

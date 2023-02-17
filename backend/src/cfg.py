@@ -5,10 +5,10 @@ class BaseConfig():
     SECRET_KEY = ''
 
     """Database configurations"""
-    DB_NAME = 'major'
+    DB_NAME = 'travel'
     DB_HOST = 'localhost'
-    DB_USER = 'root'
-    DB_PASS = 'yael'
+    DB_USER = 'yw'
+    DB_PASS = 't3iMfiRVm6'
 
     @property
     def DATABASE_URI(self):
@@ -17,8 +17,13 @@ class BaseConfig():
 
 class DevConfig(BaseConfig):
     DEBUG = True
-    SECRET_KEY = 't3iMfiRVm6'
+    SECRET_KEY = 'pValbRtVMBpUrg'
     DATABASE_URI = 'sqlite:///:memory:'
+
+
+class ProdConfig(BaseConfig):
+    DEBUG = False
+    SECRET_KEY = 'B6DE2v8q8tXA6A'
 
 
 def init():
