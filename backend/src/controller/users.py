@@ -12,7 +12,7 @@ Log = logging.getLogger(__name__)
 @users.route('/users', methods=['GET'])
 def get_users():
     """Endpoint to get a list of active users
-    
+
     Args:
         query (string): user id
         ids (array): a list of id to query
@@ -24,14 +24,16 @@ def get_users():
 
     if request.args.get("query") is not None:
         condition = request.args.get("query")
-        query = query.filter(or_(User.name.like(f"%{condition}%"), User.id.like(f"%{condition}%")))
-    
+        query = query.filter(
+            or_(User.name.like(f"%{condition}%"), User.id.like(f"%{condition}%")))
+
     elif request.args.get("users") is not None:
         query = query.filter(User.id.in_(request.args.getlist("users")))
-    
-    if request.args.get("limit") is not None:
-        query = query.limit(int(request.args.get("limit")))
-    
+
+    queryLimit = request.args.get("limit")
+    if queryLimit is not None:
+        query = query.limit(int(queryLimit))
+
     results = []
     for user in query.all():
         results.append(format_user(user))

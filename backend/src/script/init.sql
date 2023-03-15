@@ -13,8 +13,21 @@ USE travel;
 CREATE TABLE article (
   id int NOT NULL AUTO_INCREMENT,
   title VARCHAR(200),
-  content MEDIUMTEXT,
+  content LONGTEXT,
   created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
   last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Create user table
+CREATE TABLE user (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(200),
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  title VARCHAR(100),
+  email VARCHAR(100),
+  updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+  deleted BOOLEAN DEFAULT 0,
+  PRIMARY KEY (id)
+ ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

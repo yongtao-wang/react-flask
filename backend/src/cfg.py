@@ -1,10 +1,12 @@
 class BaseConfig():
     """App configurations"""
+    # todo: use host specific config
     ENV = 'development'
     DEBUG = True
     SECRET_KEY = ''
 
     """Database configurations"""
+    # todo: use host specific config
     DB_NAME = 'travel'
     DB_HOST = 'localhost'
     DB_USER = 'yw'
@@ -18,7 +20,10 @@ class BaseConfig():
 class DevConfig(BaseConfig):
     DEBUG = True
     SECRET_KEY = 'pValbRtVMBpUrg'
-    DATABASE_URI = 'sqlite:///:memory:'
+
+    @property
+    def DATABASE_URI(self):
+        return 'sqlite:///:memory:'
 
 
 class ProdConfig(BaseConfig):
