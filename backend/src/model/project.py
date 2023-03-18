@@ -3,7 +3,7 @@ from datetime import datetime as dt
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 from sqlalchemy.dialects.mysql import LONGTEXT
 
-from . import Base
+from database import Base
 
 
 class Project(Base):

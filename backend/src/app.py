@@ -1,20 +1,18 @@
 import logging
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 from flask_cors import CORS
-from sqlalchemy import create_engine
 
-from controller.users import users
-from controller.articles import articles
+from database import init_db
+from model.article import Article
 import cfg
-
 
 config = cfg.init()
 
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config)  # load config
+    app.config.from_object(config)
     app.logger.setLevel(logging.INFO)
 
     headers = ['accept', 'origin', 'Content-Type']
@@ -22,35 +20,36 @@ def create_app():
     CORS(app, origins=origins, allow_headers=headers, supports_credentials=True)
 
     register_blueprints(app)
-    register_error_handler(app)
     register_cli(app)
+    register_error_handlers(app)
     return app
 
 
 def register_blueprints(app: Flask):
-    """Register Flask blueprints"""
-    app.register_blueprint(users)
-    app.register_blueprint(articles)
-
-
-def register_cli(app: Flask):
-    """Register Click commands"""
+    """Register Flask Blueprints"""
+    # app.register_blueprint(articles)
     pass
 
 
-def register_error_handler(app: Flask):
+def register_cli(app: Flask):
+    """Register Click Commands"""
+    pass
+
+
+def register_error_handlers(app: Flask):
     @app.errorhandler(404)
     def page_not_found(e):
-        return jsonify({'data': "Page not found"}, 404)
+        # TODO: return render_template('404.html'), 404
+        return "Page Not Found - 404", 404
 
     @app.errorhandler(401)
     def user_unauthorized(e):
-        return "401", 401
+        # TODO: return render_template('401.html'), 401
+        return "Unauthorized - 401", 401
 
 
-db = create_engine(config.DATABASE_URI)
 app = create_app()
-
+init_db()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
