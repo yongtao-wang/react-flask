@@ -9,6 +9,7 @@ CREATE USER 'yw'@'localhost' IDENTIFIED BY 't3iMfiRVm6';
 
 -- Create schema with utf8mb4 character set
 CREATE SCHEMA travel CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON travel.* TO 'yw'@'localhost';
 
 USE travel;
 
