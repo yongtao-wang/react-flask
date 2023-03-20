@@ -7,7 +7,7 @@ class BaseConfig():
     """Database configurations"""
     DB_NAME = 'travel'
     DB_HOST = 'localhost'  # TODO: use remote uri
-    DB_USER = 'yongtao'
+    DB_USER = 'yw'
     DB_PASSWORD = 't3iMfiRVm6'
 
     SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}?charset=utf8mb4'

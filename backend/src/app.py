@@ -3,6 +3,7 @@ import logging
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+from controller.articles import articles
 from database import init_db
 from model.article import Article
 import cfg
@@ -22,12 +23,14 @@ def create_app():
     register_blueprints(app)
     register_cli(app)
     register_error_handlers(app)
+
+    init_db()
     return app
 
 
 def register_blueprints(app: Flask):
     """Register Flask Blueprints"""
-    # app.register_blueprint(articles)
+    app.register_blueprint(articles)
     pass
 
 
@@ -49,7 +52,7 @@ def register_error_handlers(app: Flask):
 
 
 app = create_app()
-init_db()
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=4200)

@@ -17,8 +17,8 @@ class User(Base):
     title = Column(UnicodeText(100))
     email = Column(String(100))
 
-    updated = Column(DateTime, default=dt.utcnow)
-    deleted = Column(Boolean, default=False)
+    last_updated = Column(DateTime, default=dt.utcnow)
+    is_deleted = Column(Boolean, default=False)
 
     def __repr__(self) -> str:
         return f"User {self.name}, id: {self.id}, title: {self.title}, deleted: {self.deleted}"
