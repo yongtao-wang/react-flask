@@ -1,5 +1,6 @@
 from datetime import datetime as dt
 
+from marshmallow import Schema, fields
 from sqlalchemy import Boolean, Column, DateTime, Integer, String, UnicodeText
 
 from database import Base
@@ -21,4 +22,15 @@ class User(Base):
     is_deleted = Column(Boolean, default=False)
 
     def __repr__(self) -> str:
-        return f"User {self.name}, id: {self.id}, title: {self.title}, deleted: {self.deleted}"
+        return f'User {self.name}, id: {self.id}, title: {self.title}, deleted: {self.deleted}'
+
+
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str()
+    first_name = fields.Str()
+    last_name = fields.Str()
+    title = fields.Str()
+    email = fields.Str()
+    last_updated = fields.DateTime()
+    is_deleted = fields.Boolean()

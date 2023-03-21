@@ -1,5 +1,6 @@
 from datetime import datetime as dt
 
+from marshmallow import Schema, fields
 from sqlalchemy import Column, Integer, String, DateTime, UnicodeText
 from sqlalchemy.dialects.mysql import LONGTEXT
 
@@ -25,3 +26,12 @@ class Article(Base):
 
     def __repr__(self):
         return f'Article {self.id}: {self.title}, created on {self.created_on}'
+
+
+class ArticleSchema(Schema):
+    id = fields.Int(dump_only=True)
+    title = fields.Str()
+    author = fields.Str()
+    content = fields.Str()
+    created_on = fields.DateTime()
+    last_updated = fields.DateTime()

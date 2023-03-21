@@ -1,22 +1,25 @@
 import logging
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, abort, jsonify, request
+from sqlalchemy.exc import SQLAlchemyError
 
-from model.article import Article
-from database import session
+from model.article import Article, ArticleSchema
+from database import Session
 
 
-articles = Blueprint('articles', __name__)
 Logger = logging.getLogger(__name__)
+articles = Blueprint('articles', __name__)
+article_schema = ArticleSchema()
+session = Session()
 
 
 @articles.route('/article/<id>', methods=['GET'])
 def get_single_article(id):
     """Endpoint to get a single article"""
     article = Article.query.filter_by(id=id).first()
-    print(article)
-    # TODO: Use marshmallow to parse article to json object
-    return jsonify({'data': 'done'}, 200)
+    if not article:
+        abort(404)
+    return jsonify({'data': article_schema.dump(article)}, 200)
 
 
 @articles.route('/article/add', methods=['POST'])
@@ -30,7 +33,10 @@ def add_single_article():
     if not title:
         return jsonify({'Error': 'The title of the article cannot be empty'}, 505)
 
-    session.add(Article(title=title, content=content))
-    session.commit()
+    try:
+        session.add(Article(title=title, content=content))
+        session.commit()
+    except SQLAlchemyError:
+        Logger.exception('Exception when adding new article.', exc_info=True)
 
     return jsonify({'OK': True}, 202)

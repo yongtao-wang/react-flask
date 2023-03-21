@@ -4,8 +4,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 from controller.articles import articles
-from database import init_db
-from model.article import Article
+from database import init_db, Session
 import cfg
 
 config = cfg.init()
@@ -52,6 +51,11 @@ def register_error_handlers(app: Flask):
 
 
 app = create_app()
+
+
+@app.teardown_appcontext
+def shutdown_db_session(exception=None):
+    Session.remove()
 
 
 if __name__ == '__main__':
