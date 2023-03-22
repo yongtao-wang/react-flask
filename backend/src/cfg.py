@@ -12,6 +12,8 @@ class BaseConfig():
 
     SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}?charset=utf8mb4'
 
+    """Flask configurations"""
+    JSON_AS_ASCII = False  # Allow flask to return unicode characters
 
 class DevConfig(BaseConfig):
     DEBUG = True
