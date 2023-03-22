@@ -1,7 +1,7 @@
 from datetime import datetime as dt
 
 from marshmallow import Schema, fields
-from sqlalchemy import Boolean, Column, Integer, String, DateTime, UnicodeText
+from sqlalchemy import Boolean, Column, Integer, String, DateTime, UnicodeText, text
 from sqlalchemy.dialects.mysql import LONGTEXT
 
 from database import Base
@@ -14,10 +14,10 @@ class Article(Base):
     title = Column(String(200), nullable=False)
     author = Column(UnicodeText, nullable=True)
     content = Column(LONGTEXT, nullable=True)
-    created_on = Column(DateTime, default=dt.utcnow)
-    last_updated = Column(DateTime, default=dt.utcnow)
-    is_deleted = Column(Boolean, default=False)
-    is_hidden = Column(Boolean, default=False)
+    created_on = Column(DateTime, server_default=text('CURRENT_TIMESTAMP'))
+    last_updated = Column(DateTime, server_default=text('CURRENT_TIMESTAMP'))
+    is_deleted = Column(Boolean, server_default=text('False'))
+    is_hidden = Column(Boolean, server_default=text('False'))
 
     def __repr__(self):
         return f'Article {self.id}: {self.title}, created on {self.created_on}'
