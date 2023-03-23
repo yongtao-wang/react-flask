@@ -9,7 +9,7 @@ const Links = () => (
   </div>
 )
 
-const DesktopNav = () => (
+const Navbar = () => (
   <nav className='navbar'>
     <div className='logo'>
       <Link to='/'>
@@ -23,7 +23,7 @@ const DesktopNav = () => (
 const Header = () => {
   return (
     <div>
-      <DesktopNav />
+      <Navbar />
     </div>
   )
 }

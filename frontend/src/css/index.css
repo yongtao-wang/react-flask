@@ -52,12 +52,17 @@ body {
 }
 
 .footer {
+  display: flex;
   height: 5rem;
   color: var(--palette-foreground);
   background-color: var(--palette-accent);
 }
 
-.footer .copyright{
-  text-align: right;
+.footer .footer__info {
+  width: 70%;
+}
+
+.footer .copyright {
+  /* text-align: right; */
   padding: 1rem;
 }
