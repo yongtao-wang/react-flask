@@ -30,7 +30,6 @@ def create_app():
 def register_blueprints(app: Flask):
     """Register Flask Blueprints"""
     app.register_blueprint(articles)
-    pass
 
 
 def register_cli(app: Flask):

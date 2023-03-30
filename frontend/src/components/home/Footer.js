@@ -20,7 +20,6 @@ const Footer = () => {
           </tbody>
         </table>
       </div>
-
     </footer>
   )
 }
