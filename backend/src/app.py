@@ -16,7 +16,7 @@ def create_app():
     app.logger.setLevel(logging.INFO)
 
     headers = ['accept', 'origin', 'Content-Type']
-    origins = ['http://localhost:4200/*', 'http://localhost:5000/*']
+    origins = ['http://localhost:4200/*', 'http://localhost:5000/*', 'http://localhost:3000/*']
     CORS(app, origins=origins, allow_headers=headers, supports_credentials=True)
 
     register_blueprints(app)

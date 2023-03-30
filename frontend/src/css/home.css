@@ -1,0 +1,12 @@
+.article--cards {
+  display: flex;
+  padding: 2rem;
+}
+
+.article--wrapper {
+  margin: 1rem;
+}
+
+.home {
+  min-height: 75vh;
+}

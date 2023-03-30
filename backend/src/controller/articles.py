@@ -20,7 +20,7 @@ def get_single_article(id):
     article = Article.query.filter_by(id=id, is_deleted=0).first()
     if not article:
         abort(404)
-    return jsonify({'data': article_schema.dump(article)}, 200)
+    return jsonify(article_schema.dump(article)), 200
 
 
 @articles.route('/article/all', methods=['GET'])
@@ -28,7 +28,7 @@ def get_all_articles():
     """Endpoint to get all of the articles"""
     articles = Article.query.filter_by(is_deleted=0).all()
     res = [article_schema.dump(a) for a in articles]
-    return jsonify({'data': res}, 200)
+    return jsonify(res), 200
 
 
 @articles.route('/article/add', methods=['POST'])

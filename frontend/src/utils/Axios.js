@@ -3,6 +3,7 @@ import URL from './Configs'
 
 export default axios.create({
   baseURL: URL.baseUrl,
+  headers: { 'Content-Type': 'application/json' }
 })
 
 export const axiosProtected = axios.create({

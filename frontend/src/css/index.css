@@ -19,6 +19,7 @@ body {
   display: flex;
   justify-content: space-between;
   min-width: 50%;
+  min-height: 10vh;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: 3em;
@@ -53,7 +54,7 @@ body {
 
 .footer {
   display: flex;
-  height: 5rem;
+  min-height: 10vh;
   color: var(--palette-foreground);
   background-color: var(--palette-accent);
 }

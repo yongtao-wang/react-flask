@@ -1,7 +1,7 @@
 const base_url =
   process.env.REACT_APP_ENV === 'dev'
-    ? 'http://localhost:5500'
-    : 'http://47.74.11.42:5500'  // TODO: replace with a better way
+    ? 'http://localhost:4200'
+    : 'http://139.180.133.79:4200'  // TODO: replace with a better way
 
 const URL = {
   baseUrl: base_url,
