@@ -1,14 +1,13 @@
-import URL from "../../utils/Configs"
-import ArticleView from "../article/ArticleView"
-import { useAxiosGet } from "../../hooks/useAxios"
-import "../../css/home.css"
+import URL from '../../utils/Configs'
+import ArticleView from '../article/ArticleView'
+import { useAxiosGet } from '../../hooks/useAxios'
+import '../../css/home.css'
 
 const Articles = ({ articles }) => {
-
   return (
-    <div className="article--cards">
-      {articles.map(article => (
-        <div className="article--wrapper" key={article.id}>
+    <div className='article__area'>
+      {articles.map((article) => (
+        <div className='card__wrapper' key={article.id}>
           <ArticleView article={article} />
         </div>
       ))}
@@ -20,7 +19,7 @@ const Home = () => {
   const { data: articles, error, isLoading } = useAxiosGet(URL.articles)
 
   return (
-    <div className="home">
+    <div>
       {error && <p>Error loading.</p>}
       {isLoading && <p>Loading...</p>}
       {articles && <Articles articles={articles} />}

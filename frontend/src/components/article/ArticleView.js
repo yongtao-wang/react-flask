@@ -1,23 +1,21 @@
-import Card from "@mui/material/Card"
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { formatShortDate } from "../../utils/Formatter";
-
+import { Card, Content, Title, SubTitle } from 'reactbulma'
+import { formatShortDate } from '../../utils/Formatter'
+import '../../css/article.css'
+import { Link } from 'react-router-dom'
 
 const ArticleView = ({ article }) => {
   return (
-    <Card sx={{width: 300}}>
-      <CardHeader
-        title={article.title}
-        subheader={formatShortDate(article.created_on)}
-      />
-      <CardContent>
-        <Typography color="text.primary">
-          {article.content}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Link to={`/article/${article.id}`}>
+      <Card className='article__card'>
+        <Card.Content>
+          <Title is='5'>{article.title}</Title>
+          <SubTitle is='7'>
+            Published on {formatShortDate(article.created_on)}
+          </SubTitle>
+          <Content>{article.content}</Content>
+        </Card.Content>
+      </Card>
+    </Link>
   )
 }
 

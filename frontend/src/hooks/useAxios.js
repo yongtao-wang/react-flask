@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import axios from "../utils/Axios"
+import { useEffect, useState } from 'react'
+import axios from '../utils/Axios'
 
 const useAxiosFactory = () => {
   const [data, setData] = useState(null)
@@ -16,7 +16,7 @@ const useAxiosFactory = () => {
       setAbortCtrl(ctrl)
       const response = await axiosInstance[method.toLowerCase()](url, {
         ...requestConfig,
-        signal: ctrl.signal
+        signal: ctrl.signal,
       })
       setError(null)
       setData(response.data)
@@ -45,12 +45,12 @@ export const useAxiosGet = (url, config = {}) => {
       axiosInstance: axios,
       method: 'GET',
       url: _url,
-      requestConfig: _config
+      requestConfig: _config,
     })
   }
   useEffect(() => {
     axiosGet(api, url, config)
-  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { data, isLoading, error }
 }
@@ -62,13 +62,13 @@ export const useAxiosPost = (url, config) => {
       axiosInstance: axios,
       method: 'POST',
       url: _url,
-      requestConfig: _config
+      requestConfig: _config,
     })
   }
 
   useEffect(() => {
     axiosPost(api, url, config)
-  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { data, isLoading, error }
 }
@@ -80,13 +80,13 @@ export const useAxiosDelete = (url, config = {}) => {
       axiosInstance: axios,
       method: 'DELETE',
       url: _url,
-      requestConfig: _config
+      requestConfig: _config,
     })
   }
 
   useEffect(() => {
     axiosDelete(api, url, config)
-  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { data, isLoading, error }
 }

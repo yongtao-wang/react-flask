@@ -1,3 +1,18 @@
 .article {
   padding: 5rem;
 }
+
+/* Card */
+.article__card {
+  width: 300px;
+}
+
+.card__title {
+  font-size: small;
+}
+
+/* Article main page */
+.article__title--full {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
