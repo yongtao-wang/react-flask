@@ -6,7 +6,7 @@ import Article from "./components/article/Article"
 
 function App() {
   return (
-    <div>
+    <main>
       <Header />
       <Routes>
         {/* public routes */}
@@ -14,7 +14,7 @@ function App() {
         <Route path='/article/:id/*' element={<Article />} />
       </Routes>
       <Footer />
-    </div>
+    </main>
   )
 }
 

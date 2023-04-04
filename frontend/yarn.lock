@@ -4734,6 +4734,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:2.3.1":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
+  languageName: node
+  linkType: hard
+
 "classnames@npm:^2.2.5":
   version: 2.3.2
   resolution: "classnames@npm:2.3.2"
@@ -6821,6 +6828,7 @@ __metadata:
     eslint: ^8.32.0
     eslint-config-react-app: ^7.0.1
     react: ^18.2.0
+    react-bulma-components: ^4.1.0
     react-dom: ^18.2.0
     react-router-dom: ^6.6.2
     react-scripts: 5.0.1
@@ -11054,6 +11062,20 @@ __metadata:
     regenerator-runtime: ^0.13.9
     whatwg-fetch: ^3.6.2
   checksum: 1bb031080af15397d6eb9c69a0c2e93799991f7197a086e4409ba719398f1256b542a3d6c9a34673d516c684eef3e8226c99b335982593851f58f65f6e43571b
+  languageName: node
+  linkType: hard
+
+"react-bulma-components@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "react-bulma-components@npm:4.1.0"
+  dependencies:
+    classnames: 2.3.1
+  peerDependencies:
+    bulma: ">=0.9.2"
+    prop-types: ">=15.6.0"
+    react: ">=16.3.0"
+    react-dom: ">=16.3.0"
+  checksum: 7d0165d60d157c31a08c262da5fcf1c2cc2553548ef57199693dcfcc94caf236cf4489b6acbcd0292e75f146fdf3d0545ba90ca8efeb447577ce7b5ae673ddc7
   languageName: node
   linkType: hard
 

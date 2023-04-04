@@ -10,17 +10,19 @@
 
 body {
   background-color: var(--palette-background);
-  margin: 0;
   font-family: "Quicksand";
   color: #333;
+  margin: 0;
+}
+
+main {
+  min-height: 100vh;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   background-color: var(--palette-background);
-  min-width: 50%;
-  min-height: 10vh;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: 3em;
@@ -35,7 +37,6 @@ body {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  margin: 0.3rem;
   padding: 0.5rem;
   color: var(--palette-primary);
   font-weight: 900;
@@ -56,16 +57,10 @@ body {
 .footer {
   display: grid;
   grid-template-columns: 70% 30%;
-  min-height: 10vh;
   color: var(--palette-foreground);
   background-color: var(--palette-accent);
 }
 
-.footer .footer__info {
-  width: 70%;
-}
-
 .footer .copyright {
-  /* text-align: right; */
   padding: 1rem;
 }

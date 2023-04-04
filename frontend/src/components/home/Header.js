@@ -22,9 +22,7 @@ const Navbar = () => (
 
 const Header = () => {
   return (
-    <div>
       <Navbar />
-    </div>
   )
 }
 

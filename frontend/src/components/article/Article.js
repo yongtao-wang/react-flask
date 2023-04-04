@@ -5,18 +5,9 @@ import URL from '../../utils/Configs'
 import { useParams } from 'react-router-dom'
 import '../../css/article.css'
 
-const Article = () => {
-  const { id } = useParams()
-  const {
-    data: article,
-    error,
-    isLoading,
-  } = useAxiosGet(URL.article + `/${id}`)
-
+const Article = ({article}) => {
   return (
     <div className='article'>
-      {isLoading && <p>Loading article...</p>}
-      {error && <div>{error}</div>}
       {article && (
         <div>
           <Title is='3' className='article__title--full'>
